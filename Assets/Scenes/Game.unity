@@ -304,6 +304,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 25
+  maxY: 4.55
+  minY: -4.55
+  maxX: 8.2
+  minX: -8.2
   upSprite: {fileID: 21300000, guid: 10af89f5b9af24605a83d05e21dfdeb5, type: 3}
   normalSprite: {fileID: 21300000, guid: 4f3ca6c2ba5724c4c90aee322cf79137, type: 3}
   downSprite: {fileID: 21300000, guid: 65019c4b741d6493d97d4072eff8e23b, type: 3}

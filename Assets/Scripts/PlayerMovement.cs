@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float velocity;
+    public float maxY;
+    public float minY;
+    public float maxX;
+    public float minX;
+
     public Sprite upSprite;
     public Sprite normalSprite;
     public Sprite downSprite;
@@ -29,6 +34,11 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 tempVect = new Vector3(horizontal, vertical, 0);
         tempVect = tempVect.normalized * velocity * Time.deltaTime;
         rBody.MovePosition(rBody.transform.position + tempVect);
+
+        transform.position = new Vector3(Mathf.Clamp(
+            transform.position.x, minX, maxX), 
+            Mathf.Clamp(transform.position.y, minY, maxY), 
+            transform.position.z);
 
         changeSprite();
     }
