@@ -9,16 +9,16 @@ public class PlayerMovement : MonoBehaviour {
     public Sprite normalSprite;
     public Sprite downSprite;
 
-    private Rigidbody2D rigidbody2D;
-    private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rBody;
+    private SpriteRenderer sRender;
     
     private float horizontal;
     private float vertical;
 
     // Start is called before the first frame update
     void Start() {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        rBody = GetComponent<Rigidbody2D>();
+        sRender = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour {
         
         Vector3 tempVect = new Vector3(horizontal, vertical, 0);
         tempVect = tempVect.normalized * velocity * Time.deltaTime;
-        rigidbody2D.MovePosition(rigidbody2D.transform.position + tempVect);
+        rBody.MovePosition(rBody.transform.position + tempVect);
 
         changeSprite();
     }
@@ -36,11 +36,11 @@ public class PlayerMovement : MonoBehaviour {
     // Private functions
     void changeSprite() {
         if (vertical == 1) {
-            spriteRenderer.sprite = upSprite;
+            sRender.sprite = upSprite;
         } else if (vertical == 0) {
-            spriteRenderer.sprite = normalSprite;
+            sRender.sprite = normalSprite;
         } else if (vertical == -1) {
-            spriteRenderer.sprite = downSprite;
+            sRender.sprite = downSprite;
         }
     }
 }
