@@ -10,12 +10,28 @@ public class Enemy : MonoBehaviour {
     
     public float velocity;
 
+    private Transform playerTransform;
+    private Player player;
     private float lastShoot;
+
+    // Start is called before the first frame update
+    void Start() {      
+        if (FindObjectOfType<Player>() != null) {
+            player = FindObjectOfType<Player>();
+        }
+    }
 
     // Update is called once per frame
     void Update() {
+        if (player != null) {
+            playerTransform = player.transform;
+
+            var distance = Vector3.Distance(playerTransform.position, transform.position);
+            Debug.Log("Distance to player" + distance);
+        }
+
         transform.position += Vector3.left * velocity * Time.deltaTime;
-        
+
         if (Time.time > lastShoot + 1.0) {
             createShoot();
             lastShoot = Time.time;

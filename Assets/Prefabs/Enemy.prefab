@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5223044059443509577}
   - component: {fileID: 5223044059443509576}
   - component: {fileID: 5223044059443509575}
-  - component: {fileID: 5223044059443509578}
   - component: {fileID: 5223044059443509579}
+  - component: {fileID: 8636783049670123405}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -104,22 +104,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5223044059443509578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5223044059443509574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 339b8e94bd72e4400b00b4038c0b4791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionSound: {fileID: 8300000, guid: eeac7ff7e4ad44587b11429a7e7b8fc1, type: 3}
-  shoot: {fileID: 5657195632857659081, guid: 321f2101580454d508044d02f11a12b3, type: 3}
-  explosionSprite: {fileID: 5468538841945668074, guid: dce176b2017d9490da739491f1963762, type: 3}
-  velocity: 2
 --- !u!61 &5223044059443509579
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,3 +130,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.11, y: 0.26}
   m_EdgeRadius: 0
+--- !u!114 &8636783049670123405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5223044059443509574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339b8e94bd72e4400b00b4038c0b4791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionSound: {fileID: 8300000, guid: eeac7ff7e4ad44587b11429a7e7b8fc1, type: 3}
+  shoot: {fileID: 5657195632857659081, guid: 321f2101580454d508044d02f11a12b3, type: 3}
+  explosionSprite: {fileID: 5468538841945668074, guid: dce176b2017d9490da739491f1963762, type: 3}
+  velocity: 2

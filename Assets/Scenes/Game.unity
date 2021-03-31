@@ -831,9 +831,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a404d5e4c1bad4a98813ad3e3f26bacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 4
+  maxTime: 2.5
   height: 4
-  enemy: {fileID: 0}
+  enemy: {fileID: 5223044059443509574, guid: 630f39913bfc74169ae22c9bed5836f7, type: 3}
 --- !u!4 &738788122
 Transform:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738788120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.905838, y: -0.13578491, z: -0.3782506}
+  m_LocalPosition: {x: 12, y: -0.13578491, z: -0.3782506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2c81a33e1f94667b343002dd673f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 2.5
+  maxTime: 4
   height: 4
   asteroid: {fileID: 6992073719119828723, guid: c494a0ec0d6e841789e2c97935980963, type: 3}
 --- !u!4 &2098644588
