@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class Player: MonoBehaviour {
+    
+    public AudioClip explosionSound;
+    public GameObject shoot;
+    public GameObject explosionSprite;
+    public SceneController sceneController;
 
     public float velocity;
     public float maxY;
@@ -19,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     
     private float horizontal;
     private float vertical;
+    private float lastShoot;
 
     // Start is called before the first frame update
     void Start() {
@@ -41,10 +47,15 @@ public class PlayerMovement : MonoBehaviour {
             transform.position.z);
 
         changeSprite();
+
+        if (Input.GetKey(KeyCode.Space) && Time.time > lastShoot + 0.25) {
+            createShoot();
+            lastShoot = Time.time;
+        }
     }
 
     // Private functions
-    void changeSprite() {
+    private void changeSprite() {
         if (vertical == 1) {
             sRender.sprite = upSprite;
         } else if (vertical == 0) {
@@ -52,5 +63,30 @@ public class PlayerMovement : MonoBehaviour {
         } else if (vertical == -1) {
             sRender.sprite = downSprite;
         }
+    }
+
+    private void createShoot() {
+        /**
+        Vector3 direction;
+        if (transform.localScale.x == 1.0f) {
+            direction = Vector3.right;
+        } else {
+            direction = Vector3.left;
+        }
+        GameObject customShoot = Instantiate(shoot, transform.position + direction * 0.1f, Quaternion.identity);
+        customShoot.GetComponent<Shoot>().setDirection(direction);*/
+
+        // Set always right for this case.
+        GameObject customShoot = Instantiate(shoot, transform.position + Vector3.right * 1.0f, Quaternion.identity);
+        float getTime = Time.time;
+        Destroy(customShoot, 3);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(explosionSound);
+        GameObject explosion = Instantiate(explosionSprite, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        Destroy(explosion, 1);
+        sceneController.gameOver();
     }
 }
