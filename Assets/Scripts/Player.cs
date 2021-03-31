@@ -27,7 +27,7 @@ public class Player: MonoBehaviour {
     private float lastShoot;
 
     // Start is called before the first frame update
-    void Start() {
+    void Start() {        
         rBody = GetComponent<Rigidbody2D>();
         sRender = GetComponent<SpriteRenderer>();
     }
@@ -83,10 +83,10 @@ public class Player: MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
+        sceneController.gameOver();
         Camera.main.GetComponent<AudioSource>().PlayOneShot(explosionSound);
         GameObject explosion = Instantiate(explosionSprite, transform.position, Quaternion.identity);
         Destroy(gameObject);
         Destroy(explosion, 1);
-        sceneController.gameOver();
     }
 }
