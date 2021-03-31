@@ -7,6 +7,7 @@ public class Player: MonoBehaviour {
     public AudioClip explosionSound;
     public GameObject shoot;
     public GameObject explosionSprite;
+    public GameObject engine;
     public SceneController sceneController;
 
     public float velocity;
@@ -30,6 +31,8 @@ public class Player: MonoBehaviour {
     void Start() {        
         rBody = GetComponent<Rigidbody2D>();
         sRender = GetComponent<SpriteRenderer>();
+
+        engine.transform.parent = gameObject.transform;
     }
 
     // Update is called once per frame
@@ -78,7 +81,6 @@ public class Player: MonoBehaviour {
 
         // Set always right for this case.
         GameObject customShoot = Instantiate(shoot, transform.position + Vector3.right * 1.0f, Quaternion.identity);
-        float getTime = Time.time;
         Destroy(customShoot, 3);
     }
 
