@@ -27,15 +27,17 @@ public class Enemy : MonoBehaviour {
             } else if (distance < 4) {
                 transform.position += Vector3.right * velocity * Time.deltaTime;
             } else {
+                // Look to player
+                /**
                 Vector3 offset = player.transform.position - transform.position;
                 Quaternion rotation = Quaternion.LookRotation(Vector3.forward, offset);
-                transform.rotation = rotation * Quaternion.Euler(0, 0, -90);
-            }
-        }
+                transform.rotation = rotation * Quaternion.Euler(0, 0, -90);*/
 
-        if (Time.time > lastShoot + 1.0) {
-            createShoot();
-            lastShoot = Time.time;
+                if (Time.time > lastShoot + 1.0) {
+                    createShoot();
+                    lastShoot = Time.time;
+                }
+            }
         }
 
         autoDestroyForPosition();
@@ -49,6 +51,16 @@ public class Enemy : MonoBehaviour {
     }
 
     private void createShoot() {
+        Vector3 direction;
+        if (transform.localScale.x == 1.0f) {
+            direction = Vector3.right;
+        } else {
+            direction = Vector3.left;
+        }
+        GameObject customShoot = Instantiate(shoot, transform.position + direction * 1.5f, Quaternion.identity);
+        customShoot.GetComponent<Shoot>().setDirection(direction);
+
+        Destroy(customShoot, 3);
     }
 
     private void autoDestroyForPosition() {
