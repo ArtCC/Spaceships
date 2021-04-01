@@ -28,8 +28,6 @@ public class EnemyGenerator : MonoBehaviour {
     private void generateEnemy(float x, float y) {
         GameObject newEnemy = Instantiate(enemy);
         newEnemy.transform.position = transform.position + new Vector3(0, Random.Range(x, y), 0);
-        Destroy(newEnemy, 20);
-        
         initialTime = 0;
     }
 }

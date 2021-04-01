@@ -145,4 +145,4 @@ MonoBehaviour:
   explosionSound: {fileID: 8300000, guid: eeac7ff7e4ad44587b11429a7e7b8fc1, type: 3}
   shoot: {fileID: 5657195632857659081, guid: 321f2101580454d508044d02f11a12b3, type: 3}
   explosionSprite: {fileID: 5468538841945668074, guid: dce176b2017d9490da739491f1963762, type: 3}
-  velocity: 2
+  velocity: 5
